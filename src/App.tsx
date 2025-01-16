@@ -47,7 +47,7 @@ const theme = createTheme({
 });
 
 // Refined tone types with clear distinctions
-type ToneType = 'business' | 'warm' | 'executive' | 'conversational';
+type ToneType = 'professional' | 'warm' | 'executive' | 'conversational';
 
 // Tone configuration with clear descriptions and icons
 const toneConfig = {
@@ -75,7 +75,7 @@ const toneConfig = {
 
 function App() {
   const [email, setEmail] = useState('');
-  const [tone, setTone] = useState<ToneType>('business');
+  const [tone, setTone] = useState<ToneType>('professional');
   const [generatedReply, setGeneratedReply] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
