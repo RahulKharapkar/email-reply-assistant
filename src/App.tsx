@@ -51,7 +51,7 @@ type ToneType = 'professional' | 'warm' | 'executive' | 'conversational';
 
 // Tone configuration with clear descriptions and icons
 const toneConfig = {
-  business: {
+  professional: {
     icon: Briefcase,
     label: 'Professional',
     description: 'Clear, direct, and solution-focused',
