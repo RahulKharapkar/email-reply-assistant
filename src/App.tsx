@@ -12,6 +12,7 @@ import {
   CssBaseline,
   CircularProgress,
   Paper,
+  Alert,
 } from '@mui/material';
 import { Mail, Wand2, Briefcase, Heart, Crown, Coffee } from 'lucide-react';
 
@@ -99,6 +100,7 @@ function App() {
         throw new Error('Failed to generate reply');
       }
 
+
       const data = await response.text();
       setGeneratedReply(data);
     } catch (err) {
@@ -109,6 +111,7 @@ function App() {
     }
   };
 
+  
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -202,7 +205,11 @@ function App() {
               >
                 {loading ? 'Generating...' : 'Generate Reply'}
               </Button>
-
+              {loading && (
+                <Alert severity="info" sx={{ mt: 2 }}>
+                  Please wait patiently. As the service is hosted on a free server, the response may take up to 30 seconds.
+                </Alert>
+              )}
               {error && (
                 <Typography color="error" sx={{ mt: 2, textAlign: 'center' }}>
                   {error}
@@ -210,6 +217,7 @@ function App() {
               )}
             </CardContent>
           </Card>
+    
 
           {generatedReply && (
             <Card>
@@ -230,8 +238,8 @@ function App() {
                 <Button
                   variant="outlined"
                   sx={{ mt: 2 }}
-                  onClick={() => navigator.clipboard.writeText(generatedReply)}
-                >
+                  onClick={() => navigator.clipboard.writeText(generatedReply)}>
+            
                   Copy to Clipboard
                 </Button>
               </CardContent>
@@ -240,6 +248,7 @@ function App() {
         </Box>
       </Container>
     </ThemeProvider>
+    
   );
 }
 
